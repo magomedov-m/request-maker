@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Вступление в профсоюз</title>
+        <link rel="icon" href="/src/icons/wired-outline-20-love-heart-in-reveal (1).apng" type="image/apng">
+    </head>
+
+    <body>
+        <button onclick="generateText()">Скачать PDF</button>
+    </body>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js"></script>
+    <!-- <script src="/src/scripts/script1.js"></script> -->
+     <script>
+        function generateText() {
+            const {jsPDF} = window.jspdf;
+            const doc = new jsPDF();
+            doc.text('это тестовый текст пдф', 100, 100);
+            doc.save('new File.pdf')
+        }
+     </script>
+</html>
