@@ -8,7 +8,7 @@ function generateText() {
     const doc = new jsPDF();
 
     doc.setFont("helvetica");
-    doc.text('Заявление о вступлении в профсоюз', 10, 10);
+    doc.text('hey girl, do you wanna drink this tea', 10, 10);
     doc.text('Я, ФИО, дата рождения, проживающий по адресу: адрес,', 10, 20);
     doc.text('работаю в название организации на должности должность,', 10, 30);
     doc.text('прошу принять меня в члены первичной профсоюзной организации.', 10, 40);
