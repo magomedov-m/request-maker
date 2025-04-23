@@ -1,21 +1,29 @@
-'use strict'
+'use strict';
 
-let buttonDownload = document.querySelector('.download')
-buttonDownload.addEventListener('click', generateText);
+const downloadBtn = document.querySelector('.downloadBtn');
 
-function generateText() {
-    const {jsPDF} = window.jspdf;
+async function exportToPDF() {
+    const { jsPDF } = window.jspdf; // Получаем jsPDF из глобального объекта
     const doc = new jsPDF();
 
-    doc.setFont("helvetica");
-    doc.text('hey girl, do you wanna drink this tea', 10, 10);
-    doc.text('Я, ФИО, дата рождения, проживающий по адресу: адрес,', 10, 20);
-    doc.text('работаю в название организации на должности должность,', 10, 30);
-    doc.text('прошу принять меня в члены первичной профсоюзной организации.', 10, 40);
-    doc.text('Согласен(на) с уставом профсоюза и обязуюсь выполнять его требования.', 10, 50);
-    doc.text('Дата: дата', 10, 60);
-    doc.text('Подпись: ____________________', 10, 70);
+    // Получаем элемент для рендеринга
+    const element = document.getElementById('content');
+    
+    // Рендерим элемент в canvas
+    const canvas = await html2canvas(element, { scale: 2 });
 
-            // Сохранение PDF
-    doc.save('заявление_о_вступлении_в_профсоюз.pdf');
+    // Преобразуем canvas в изображение
+    const imgData = canvas.toDataURL('image/png');
+
+    // Настройка PDF
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    // Добавление изображения в PDF
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('Заявление_о_вступлении_в_профсоюз.pdf'); // Сохранение PDF
 }
+
+// Обработчик клика на кнопку
+downloadBtn.addEventListener('click', exportToPDF);

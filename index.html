@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Вступление в профсоюз</title>
-        <link rel="stylesheet" href="/src/CSS/style.css">
-        <link rel="icon" href="/src/icons/wired-outline-20-love-heart-in-reveal (1).apng" type="image/apng">
-        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-    </head>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вступить в профсоюз</title>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="/src/CSS/style.css">
+</head>
+<body>
+    <h1>Здравствуйте!</h1>
+    <p>Заполните свои данные в заявлении и нажмите "Скачать документ"</p>
 
-    <body>
-
-        <h1>Заявление о вступлении в профсоюз</h1>
-        <div class="content">
-            <p>Я, <strong>ФИО</strong>, <strong>дата рождения</strong>, проживающий по адресу: <strong>адрес</strong>, 
-            работаю в <strong>название организации</strong> на должности <strong>должность</strong>, 
-            прошу принять меня в члены первичной профсоюзной организации.</p>
-            
-            <p>Согласен(на) с уставом профсоюза и обязуюсь выполнять его требования.</p>
-            
-            <p>Дата: <strong>дата</strong></p>
-            <p>Подпись: ____________________</p>
+    <div id="content" class="content">
+        <div class="title">
+            <p>Форма 1</p>
+            <p>В первичную (территориальную) профсоюзную организацию (наименование организации Профсоюза)</p>
+            <p>от (Ф.И.О., должность)</p>
+            <p>ЗАЯВЛЕНИЕ</p>
+            <p>о вступлении в Профсоюз</p>
         </div>
-        <button class="download">Скачать PDF</button>
+        <p>Я, <span class="underline">(Ф.И.О., должность)</span></p>
+        <p>прошу принять меня в члены Профсоюза работников народного образования и науки РФ. Обязуюсь выполнять Устав Профсоюза, уплачивать членские профсоюзные взносы и принимать участие в деятельности организации Профсоюза.</p>
+        <p>В соответствии с Трудовым кодексом РФ и Федеральным законом «О персональных данных» и с целью представительства и защиты моих социально-трудовых прав и профессиональных интересов, организации профсоюзного учёта даю согласие на обработку моих персональных данных (Ф.И.О., год и дата рождения, образование, профессия, семейное положение и заработная плата) на весь период моего членства в Общероссийском Профсоюзе образования и оставляю за собой право по письменному требованию отозвать заявление в любое время.</p>
+        <div class="signature">
+            <p>_______              ____________<br>(дата)              (подпись)</p>
+        </div>
+        <p class="note">Примечание: Заявление хранится в первичной профсоюзной организации.</p>
+    </div>
+    <button class="downloadBtn">Скачать документ</button>
 
-    </body>
-    
     <script src="/src/scripts/script1.js"></script>
+</body>
 </html>
